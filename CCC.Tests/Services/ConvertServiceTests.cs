@@ -3,6 +3,7 @@ using CCC.Converter.Models;
 using CCC.Converter.Services;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Xunit;
 
@@ -369,6 +370,9 @@ namespace CCC.Tests.Services
             };
 
             var okResult = _services.Converter(converterModelMock);
+
+            var usd = okResult.Where(x => x.Key.Contains("USD")).FirstOrDefault();
+            Assert.Equal(25.60m, usd.Value);
 
             Assert.IsType<Dictionary<string, decimal>>(okResult);
         }

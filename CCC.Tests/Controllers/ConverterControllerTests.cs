@@ -4,6 +4,7 @@ using CCC.Converter.Models;
 using CCC.Tests.Mocks;
 using System;
 using Xunit;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace CCC.Tests.Controllers
@@ -371,6 +372,9 @@ namespace CCC.Tests.Controllers
             };
 
             var okResult = _controller.Get(converterModelMock);
+
+            var usd = okResult.Value.Where(x => x.Key.Contains("USD")).FirstOrDefault();
+            Assert.Equal(25.60m, usd.Value);
 
             Assert.IsType<Dictionary<string, decimal>>(okResult.Value);
         }
