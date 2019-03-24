@@ -1,0 +1,1 @@
+# [CCC] - Currency Converter Core
