@@ -1,0 +1,51 @@
+﻿@model CCC.App.Models.CurrencyDataModel
+@{
+    ViewData["Title"] = "CCC";
+
+    var from = Model.CurrencyListModel.Currencies;
+    var convertedValues = Model.ConvertedValues;
+}
+
+<div class="row">
+    <div class="col-12 col-sm-12">
+        <form id="formCalcular" action="/Home/Calculated" method="get">
+            <div class="row">
+                <div class="col-12 col-sm-12">
+                    <h3>Currency Converter</h3>
+                </div>
+                <div class="col-12 col-sm-4">
+                    <div class="form-group">
+                        <label for="">Value</label>
+                        <input type="text" class="form-control" id="value" name="value" value="@Model.Value" />
+                    </div>
+                </div>
+                <div class="col-12 col-sm-4">
+                    <div class="form-group">
+                        <label for="paises-de">From</label>
+                        @Html.DropDownList("from", new SelectList(from, "Key", "Value", Model.From), new { @id = "from", @name = "from", @class = "form-control" })
+                    </div>
+                </div>
+                <div class="col-12 col-sm-4">
+                    <div class="form-group">
+                        <button type="submit" id="calculate" class="btn btn-md btn-default">Calculate</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        @if (!(convertedValues is null))
+        {
+            <hr />
+            <div class="row">
+                @foreach (var item in convertedValues)
+                {
+                    <div class="col-12 col-sm-4">
+                        <div class="form-group">
+                            <label>@item.Key</label>
+                            <p>@item.Value</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
