@@ -23,7 +23,7 @@ namespace CCC.App.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var currencyLayerData = await _currencyService.GetCurrencyLayerData();
+            var currencyLayerData = await _currencyService.GetCurrencyLayerListData();
             return View(currencyLayerData);
         }
 

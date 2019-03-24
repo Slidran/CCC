@@ -32,20 +32,5 @@
                 </div>
             </div>
         </form>
-        @if (!(convertedValues is null))
-        {
-            <hr />
-            <div class="row">
-                @foreach (var item in convertedValues)
-                {
-                    <div class="col-12 col-sm-4">
-                        <div class="form-group">
-                            <label>@item.Key</label>
-                            <p>@item.Value</p>
-                        </div>
-                    </div>
-                }
-            </div>
-        }
     </div>
 </div>

@@ -9,6 +9,7 @@ namespace CCC.App.Interfaces
     public interface ICurrencyService
     {
         Task<CurrencyDataModel> GetCurrencyLayerData();
+        Task<CurrencyDataModel> GetCurrencyLayerListData(); 
         Task<Dictionary<string, decimal>> GetCalculatedCurrency(ConverterModel converterModel);
     }
 }

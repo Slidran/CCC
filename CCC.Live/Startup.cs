@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 using CCC.Live.Interfaces;
@@ -16,6 +17,7 @@ using Swashbuckle.AspNetCore.Swagger;
 
 namespace CCC.Live
 {
+    [ExcludeFromCodeCoverage]
     public class Startup
     {
         public Startup(IConfiguration configuration)
